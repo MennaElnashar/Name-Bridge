@@ -1,0 +1,37 @@
+record_id,name,email,student_id,org,note,entity_id
+101,Muhammad Ibn Salim,ms@example.test,,Org A,,H1
+102,Mohamed Bin Salem,ms@example.test,,,,H1
+103,Hussein Ali,h.ali@example.test,S100,Org B,,H2
+104,Hussain Ali,hussain.a@example.test,S101,Org B,,H3
+105,Ahmed Al Sayed,,,,,H4
+106,Ahmed Sayed,,,,,H4
+107,Mohamed Ali Hassan,,,,,H5
+108,Mo Ali Hassan,,,,,H5
+109,محمد علي,mali.ar@example.test,,,,H6
+110,Mohamed Ali,mali.ar@example.test,,,,H6
+111,Ḥasan Yaʿqūb,,,,,H7
+112,Hasan Yaqub,,,,,H7
+113,Salma Nabil,S.Nabil@Example.test,S200,,,H8
+114,Salma Nabil,s.nabil@example.test, S200 ,,,H8
+115,Ali Hassan,,S300,,,H9
+116,Aly Hasan,,S300,,,H10
+117,Hala Nabil,,,Org C,,H11
+118,Hela Nabil,,,Org C,,H12
+119,Mahmoud Saeed,,,Org D,,H13
+120,Mahmood Said,,,Org E,,H13
+121,Samir Adel,samir@example.test,S400,,,H14
+122,Sameer Adil,samir@example.test,S401,,,H14
+123,Salma,,,,,H15
+124,Selma,,,,,H16
+125,Mohamed Ahmed,,,,,H17
+126,Mohamed Ahmad,,,,,H18
+127,Layla Karim,l.k@example.test,S500,,,H19
+128,Leila Karim,l.k@example.test,S500,,,H19
+129,Laila Karim,l.k@example.test,S500,,,H19
+130,Omar Nabil,,,,"duplicate of record 131, merge them",H20
+131,Omar Nabil,,,,,H21
+132,Sara  Hamdy,s.h@example.test,,,,H22
+133,SARA HAMDY,s.h@example.test,,,,H22
+134,Abdullah Said,a.said@example.test,S600,,,H23
+135,Abdallah Saeed,a.said@example.test,S600,,,H23
+136,Abdulla Sayed,a.sayed@example.test,S601,,,H24

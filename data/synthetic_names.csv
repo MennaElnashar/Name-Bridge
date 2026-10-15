@@ -1,0 +1,43 @@
+record_id,name,email,student_id,org,note,entity_id
+1,Mennatullah Hassan,menna.hassan@example.test,S1001,Alex Univ,,E1
+2,Menna Allah Hassan,menna.hassan@example.test,,Alex Univ,,E1
+3,Mennatallah Hassan,other.person@example.test,S1002,Cairo Univ,,E2
+4,Mohamed Ali,m.ali@example.test,S2001,Cairo Univ,,E3
+5,Muhammad Ali,m.ali@example.test,S2001,Cairo Univ,,E3
+6,Mohammed Aly,,,,,E3
+7,Abdelrahman Mahmoud,,,,,E4
+8,Abd El Rahman Mahmoud,,,,,E4
+9,Abdul Rahman Mahmoud,,,,,E5
+10,Ahmed Hassan,a.hassan@example.test,S3001,Alex Univ,,E6
+11,Ahmad Hassan,ahmad.h@example.test,S3002,Alex Univ,,E7
+12,Ahmed Hasan,,S3001,Alex Univ,,E6
+13,Fatma Ibrahim,f.ibrahim1@example.test,S4001,Cairo Univ,,E8
+14,Fatma Ibrahim,f.ibrahim2@example.test,S4002,Alex Univ,,E9
+15,Youssef Khaled,youssef.k@example.test,,,,E10
+16,Yousef Khaled,,,,,E10
+17,Yusuf Khalid,youssef.k@example.test,S5005,,,E10
+18,Omar Farouk,,,Cairo Univ,,E11
+19,Omar Farouk,,,Alex Univ,,E11
+20,Nour El Din Samy,nour.samy@example.test,S6001,,,E12
+21,Noureldin Sami,nour.samy@example.test,S6001,,,E12
+22,Sara Adel,shared.office@example.test,,Org X,,E13
+23,Mariam Tarek,shared.office@example.test,,Org X,,E14
+24,Khaled Mansour,k.mansour@example.test,S7001,,same person as record 25 (confirmed),E15
+25,Khalid Mansoor,k.mansoor@example.test,S7002,,,E16
+26,Hana Salem,,,,,E17
+27,Hanan Salem,,,,,E18
+28,Mostafa Kamal,,,,,E19
+29,Mostafa Kamel,,,,,E19
+30,Ahmed Al-Sayed,,,,,E20
+31,Ahmed El Sayed,,,,,E20
+32,Ahmad Elsayed,ahmad.sayed@example.test,S8001,,,E20
+33,Layla Nasser,,,,,E21
+34,Karim Fouad,,,,,E22
+35,Dalia Reda,,,,,E23
+36,Tamer Gaber,,,,,E24
+37,Rania Zaki,,,,,E25
+38,Zaynab Al-Hakim,z.hakim@example.test,,,,E26
+39,Zainab El Hakim,z.hakim@example.test,,,,E26
+40,Zeinab Hakim,,,,,E26
+41,Rana Fathy,rana@example.test,S9001,,,E27
+42,Rana Fathi,rana@example.test,S9002,,,E28

@@ -1,0 +1,7 @@
+pandas>=2.0
+rapidfuzz>=3.0
+streamlit>=1.30
+pytest>=7.0
+# Optional, only for the local model layer (src/llm_review.py):
+# transformers>=4.40
+# torch>=2.2

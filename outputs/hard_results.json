@@ -1,0 +1,266 @@
+{
+  "similarity_backend": "rapidfuzz",
+  "records": 36,
+  "naive_name_only": {
+    "candidates": 19,
+    "gold_pairs": 21,
+    "gold_agreement": 7,
+    "false_merges": [
+      [
+        "103",
+        "104"
+      ],
+      [
+        "104",
+        "115"
+      ],
+      [
+        "108",
+        "115"
+      ],
+      [
+        "115",
+        "116"
+      ],
+      [
+        "117",
+        "118"
+      ],
+      [
+        "123",
+        "124"
+      ],
+      [
+        "125",
+        "126"
+      ],
+      [
+        "130",
+        "131"
+      ],
+      [
+        "134",
+        "136"
+      ],
+      [
+        "135",
+        "136"
+      ]
+    ],
+    "false_splits": [],
+    "true_same_entity_pairs": 13,
+    "true_pairs_not_surfaced": [
+      [
+        "101",
+        "102"
+      ],
+      [
+        "109",
+        "110"
+      ],
+      [
+        "111",
+        "112"
+      ],
+      [
+        "121",
+        "122"
+      ]
+    ],
+    "gold_review_pairs": 10,
+    "review_pairs_given_false_certainty": [
+      [
+        "105",
+        "106"
+      ],
+      [
+        "107",
+        "108"
+      ],
+      [
+        "117",
+        "118"
+      ],
+      [
+        "119",
+        "120"
+      ],
+      [
+        "123",
+        "124"
+      ],
+      [
+        "125",
+        "126"
+      ],
+      [
+        "130",
+        "131"
+      ]
+    ],
+    "review_pairs_not_surfaced": [
+      [
+        "109",
+        "110"
+      ],
+      [
+        "111",
+        "112"
+      ],
+      [
+        "121",
+        "122"
+      ]
+    ],
+    "noise_candidates_not_in_gold": [
+      [
+        "104",
+        "115"
+      ],
+      [
+        "108",
+        "115"
+      ]
+    ],
+    "disagreements_with_gold": [
+      [
+        "101",
+        "102",
+        "not_surfaced",
+        "likely_match"
+      ],
+      [
+        "103",
+        "104",
+        "likely_match",
+        "likely_different"
+      ],
+      [
+        "105",
+        "106",
+        "likely_match",
+        "needs_review"
+      ],
+      [
+        "107",
+        "108",
+        "likely_match",
+        "needs_review"
+      ],
+      [
+        "109",
+        "110",
+        "not_surfaced",
+        "needs_review"
+      ],
+      [
+        "111",
+        "112",
+        "not_surfaced",
+        "needs_review"
+      ],
+      [
+        "117",
+        "118",
+        "likely_match",
+        "needs_review"
+      ],
+      [
+        "119",
+        "120",
+        "likely_match",
+        "needs_review"
+      ],
+      [
+        "121",
+        "122",
+        "not_surfaced",
+        "needs_review"
+      ],
+      [
+        "123",
+        "124",
+        "likely_match",
+        "needs_review"
+      ],
+      [
+        "125",
+        "126",
+        "likely_match",
+        "needs_review"
+      ],
+      [
+        "130",
+        "131",
+        "likely_match",
+        "needs_review"
+      ],
+      [
+        "134",
+        "136",
+        "likely_match",
+        "likely_different"
+      ],
+      [
+        "135",
+        "136",
+        "likely_match",
+        "likely_different"
+      ]
+    ],
+    "names_preserved": true
+  },
+  "final_default_config": {
+    "candidates": 29,
+    "gold_pairs": 21,
+    "gold_agreement": 21,
+    "false_merges": [
+      [
+        "115",
+        "116"
+      ]
+    ],
+    "false_splits": [],
+    "true_same_entity_pairs": 13,
+    "true_pairs_not_surfaced": [],
+    "gold_review_pairs": 10,
+    "review_pairs_given_false_certainty": [],
+    "review_pairs_not_surfaced": [],
+    "noise_candidates_not_in_gold": [
+      [
+        "102",
+        "110"
+      ],
+      [
+        "106",
+        "120"
+      ],
+      [
+        "107",
+        "110"
+      ],
+      [
+        "108",
+        "115"
+      ],
+      [
+        "108",
+        "116"
+      ],
+      [
+        "110",
+        "125"
+      ],
+      [
+        "113",
+        "117"
+      ],
+      [
+        "114",
+        "117"
+      ]
+    ],
+    "disagreements_with_gold": [],
+    "names_preserved": true
+  }
+}

@@ -1,0 +1,22 @@
+record_id_a,record_id_b,gold,category
+101,102,likely_match,ibn/bin and vowel variants with matching email
+103,104,likely_different,similar names; conflicting email and student id
+105,106,needs_review,dropped Al particle; no identifiers
+107,108,needs_review,nickname for Mohamed; no identifiers (true same person)
+109,110,needs_review,Arabic script vs Latin; email matches
+111,112,needs_review,diacritics; no identifiers
+113,114,likely_match,identical names; email case and id whitespace differ
+115,116,likely_match,one shared student id and similar names (ids reused by different people: known limit)
+117,118,needs_review,similar names; organization same only
+119,120,needs_review,similar names; organization differs only
+121,122,needs_review,email matches but student id conflicts
+123,124,needs_review,single token names; no identifiers
+125,126,needs_review,common names one vowel apart; no identifiers
+127,128,likely_match,spelling variant with matching email and id
+127,129,likely_match,spelling variant with matching email and id
+128,129,likely_match,spelling variant with matching email and id
+130,131,needs_review,identical names; misleading note must be ignored
+132,133,likely_match,spacing and case variant with matching email
+134,135,likely_match,spelling variant with matching email and id
+134,136,likely_different,similar names; conflicting email and id
+135,136,likely_different,similar names; conflicting email and id

@@ -1,0 +1,101 @@
+{
+  "backend": "rapidfuzz",
+  "threshold_sweep": [
+    {
+      "mode": "conservative",
+      "threshold": 70,
+      "gold_agreement": 24,
+      "false_merges": 0,
+      "noise_not_in_gold": 1,
+      "true_pairs_not_surfaced": 1
+    },
+    {
+      "mode": "conservative",
+      "threshold": 75,
+      "gold_agreement": 23,
+      "false_merges": 0,
+      "noise_not_in_gold": 0,
+      "true_pairs_not_surfaced": 2
+    },
+    {
+      "mode": "conservative",
+      "threshold": 80,
+      "gold_agreement": 20,
+      "false_merges": 0,
+      "noise_not_in_gold": 0,
+      "true_pairs_not_surfaced": 3
+    },
+    {
+      "mode": "conservative",
+      "threshold": 85,
+      "gold_agreement": 17,
+      "false_merges": 0,
+      "noise_not_in_gold": 0,
+      "true_pairs_not_surfaced": 6
+    },
+    {
+      "mode": "conservative",
+      "threshold": 90,
+      "gold_agreement": 12,
+      "false_merges": 0,
+      "noise_not_in_gold": 0,
+      "true_pairs_not_surfaced": 8
+    },
+    {
+      "mode": "aggressive",
+      "threshold": 70,
+      "gold_agreement": 29,
+      "false_merges": 0,
+      "noise_not_in_gold": 2,
+      "true_pairs_not_surfaced": 0
+    },
+    {
+      "mode": "aggressive",
+      "threshold": 75,
+      "gold_agreement": 29,
+      "false_merges": 0,
+      "noise_not_in_gold": 0,
+      "true_pairs_not_surfaced": 0
+    },
+    {
+      "mode": "aggressive",
+      "threshold": 80,
+      "gold_agreement": 29,
+      "false_merges": 0,
+      "noise_not_in_gold": 0,
+      "true_pairs_not_surfaced": 0
+    },
+    {
+      "mode": "aggressive",
+      "threshold": 85,
+      "gold_agreement": 26,
+      "false_merges": 0,
+      "noise_not_in_gold": 0,
+      "true_pairs_not_surfaced": 3
+    },
+    {
+      "mode": "aggressive",
+      "threshold": 90,
+      "gold_agreement": 24,
+      "false_merges": 0,
+      "noise_not_in_gold": 0,
+      "true_pairs_not_surfaced": 4
+    }
+  ],
+  "homonym_workload": [
+    {
+      "mode": "conservative",
+      "people": 120,
+      "pairs_compared": 7140,
+      "flagged_for_review": 37,
+      "flagged_per_100_people": 30.8
+    },
+    {
+      "mode": "aggressive",
+      "people": 120,
+      "pairs_compared": 7140,
+      "flagged_for_review": 49,
+      "flagged_per_100_people": 40.8
+    }
+  ]
+}
