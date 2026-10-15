@@ -13,4 +13,4 @@ The plan came from brainstorming with ChatGPT and was then carried out with AI h
 
 Modules: `src/normalization.py`, `matching.py`, `evidence.py`, `policy.py`, `pipeline.py`, `llm_review.py`, `compare_models.py`, `evaluate.py`, `stress.py`; `app.py`; `tests/` (40 tests).
 
-Outcome: the app launches and is documented in `docs/walkthrough.md`. The model comparison ran once with Qwen2.5-0.5B-Instruct on CPU (the 1.5B model was too slow to download; a hosted API needed credits). The project is committed locally; pushing to https://github.com/MennaElnashar/Name-Bridge needs the owner's GitHub sign-in, which this machine did not have.
+Outcome: the app launches and is documented in `docs/walkthrough.md`. The model comparison ran once with Qwen2.5-0.5B-Instruct on CPU (the 1.5B model was too slow to download; a hosted API needed credits). The project is published at https://github.com/MennaElnashar/Name-Bridge.

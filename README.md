@@ -22,7 +22,7 @@ Use data/synthetic_names.csv. Do not upload real personal records to a public de
 | Gold-label audit | Automated check against ground-truth entity ids (tests/test_gold_labels.py) |
 | Streamlit app | Launched and exercised (Streamlit 1.50); demo in docs/walkthrough.md |
 | Local model layer | Guard and 10 guard tests built. Comparison run once with a small local model (Qwen2.5-0.5B-Instruct, CPU): the guard rejected 57 of 58 outputs and let no upgrade through; names-only, the model said SAME on 6 of 27 different-people pairs. See docs/evaluation_protocol.md. One small model only |
-| Publishing | Committed to a local git repository. Publishing to https://github.com/MennaElnashar/Name-Bridge needs the owner's GitHub sign-in: run `git push -u origin main` in this folder |
+| Publishing | Published: https://github.com/MennaElnashar/Name-Bridge |
 
 ## Documents
 intent.md, Final directive.md, docs/writeup.md, docs/ai_usage_log.md, docs/evaluation_protocol.md, docs/retrospective.md, docs/walkthrough.md, docs/implementation_plan.md. The AI usage log covers ChatGPT (brainstorming), Claude (build) and GitHub Copilot (review and fixes).

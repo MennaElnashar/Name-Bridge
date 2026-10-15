@@ -34,4 +34,4 @@ ChatGPT came first, for brainstorming the problem and shaping the five-day plan.
 Synthetic data only, Latin script only (an Arabic-script name was only surfaced through a matching email). The labels were written by the same author as the policy, and only a test has checked them against the ground truth. No person has reviewed them. Model results come from one very small model in one run. The walkthrough is written rather than recorded. It is not ready for real personal records.
 
 ## Where things are
-Repository target: https://github.com/MennaElnashar/Name-Bridge (pushing needs the owner's GitHub sign-in). `intent.md`, `Final directive.md`, `README.md`, `docs/ai_usage_log.md`, `docs/walkthrough.md`, `docs/evaluation_protocol.md`, `docs/retrospective.md`, and the result files in `outputs/`.
+Repository: https://github.com/MennaElnashar/Name-Bridge. `intent.md`, `Final directive.md`, `README.md`, `docs/ai_usage_log.md`, `docs/walkthrough.md`, `docs/evaluation_protocol.md`, `docs/retrospective.md`, and the result files in `outputs/`.

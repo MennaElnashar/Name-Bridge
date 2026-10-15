@@ -59,7 +59,7 @@ Also one decision question was answered: when the model download was blocked, th
 ## Phase 5: ship and document (Claude, then Copilot)
 - AI contribution (Claude): README, write-up, retrospective, this log, first drafts of everything.
 - AI contribution (Copilot): ran the app and checked it with Streamlit's AppTest; found and fixed a stale-results bug (two different same-shaped CSVs could show the first one's pairs); removed a deprecated option; wrote `docs/walkthrough.md` from real outputs; corrected the documents that still said the app had never been launched; added `tests/test_gold_labels.py`.
-- Publishing: the project is committed to a local git repository. The push to https://github.com/MennaElnashar/Name-Bridge failed because this machine has no GitHub credentials; the owner needs to run `git push -u origin main`. The walkthrough is written, not recorded on video.
+- Publishing: the first push attempts failed because this machine had no GitHub credentials. A browser sign-in then picked up the owner's work account, which has no access to the repository, so GitHub refused it (403) and nothing was pushed; I removed that stored credential. Signing in again as the personal account worked and the repository was pushed to https://github.com/MennaElnashar/Name-Bridge. The walkthrough is written, not recorded on video.
 
 ## Where the AI was wrong or overclaimed
 - The first documents described the app as finished while it had only been syntax-checked.
