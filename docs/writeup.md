@@ -16,7 +16,7 @@ AI was my main way of working on every day. Full detail, with every prompt and w
 - 13 Oct, ChatGPT: brainstorming, choosing the problem, drafting the five-day plan.
 - 14 Oct, Claude: built the first complete version from the plan (code, data, tests, app, evaluation, first documents). Copilot in VS Code then ran everything, found stale claims and a real bug, and added the hard set, an audit of the labels, and the model comparison script.
 - 15 Oct, Copilot: ran the model comparison, tried a hosted model, published the repo, recorded the walkthrough and packaged the submission.
-- 16 Oct: my final revision of the documents, with Copilot making the edits and re-recording the captioned walkthrough.
+- 16 Oct, Copilot: built a blind labelling sheet that I answered myself, rewrote the README, re-recorded the walkthrough with captions, and ran a final check. I revoked the token I had pasted and edited the README on GitHub.
 It took four calendar days, not five, and the log says so rather than stretching it.
 
 ## What failed

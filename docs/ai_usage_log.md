@@ -8,7 +8,7 @@ The brief describes five days; this project took four calendar days, 13 to 16 Oc
 |---|---|---|
 | ChatGPT | 13 Oct | Brainstorming ideas, choosing the problem, drafting the five-day plan. The chat is not stored in this repository; the plan it produced is what I took into the build session. |
 | Claude (one chat session) | 14 Oct | The first complete build: scaffold, code, synthetic data, tests, app, evaluation, stress scripts and first drafts of the documents. |
-| GitHub Copilot in VS Code (several sessions) | 14 and 15 Oct | Running the project, auditing the documents, fixing bugs, adding the hard set, the model comparison and the walkthrough, publishing, packaging. |
+| GitHub Copilot in VS Code (several sessions) | 14, 15 and 16 Oct | Running the project, auditing the documents, fixing bugs, adding the hard set, the model comparison and the walkthrough, publishing, packaging. |
 
 ## 13 October: define (ChatGPT)
 - Task: pick a real, hard problem and plan the work.
@@ -52,19 +52,29 @@ Prompts, in order: "Push the repo here https://github.com/MennaElnashar/Name-Bri
 - Publishing. The first push failed for lack of credentials. A browser sign-in then picked up my work account, which has no access to the repository, so GitHub refused it with a 403 and nothing was pushed; the stored credential was removed. Signing in again with the personal account worked.
 - Packaging. Screenshots and a short scripted walkthrough video were recorded from the running app, a small display bug was fixed (the inspected-record table showed the pandas row index beside the real record ID), and a submission bundle was made.
 
-## 16 October: final revision (me, with Copilot for the edits)
-- I reviewed every document against the evaluation criteria and the real timeline, and asked for the log, the write-up and the reviewer map to be corrected where they claimed too much or too little.
-- Prompts: asking for a captioned version of the walkthrough video (I had no time to record my own narration), and asking how to revoke the Hugging Face token I had pasted into the chat.
-- Copilot re-recorded the scripted walkthrough with on-screen captions and rebuilt the submission bundle.
-- I revoked the Hugging Face token (Copilot confirmed the old token now returns 401).
-- Prompts: "Please give me the evaluation sheet for labelling", then "The csv file is updated now please check it", then "data is missing means cannot tell". Copilot built `src/labelling.py` (Excel and printable PDF sheets of 24 blind pairs, a separate answer key, a scorer) with tests. I filled in the CSV myself, so this is a second pass by the project owner, not an independent review. Copilot scored it: 20 of 24 answers agree with the policy, I agreed with all 14 of the policy's firm calls, and we made the same mistake on the shared-student-ID pair (details in `docs/evaluation_protocol.md`). The scorer was extended to accept natural wording ("same", "different"), and my original answers are kept untouched in `labelling/completed/owner_as_returned.csv`.
+## 16 October: final revision, labelling check and README (me, with Copilot)
+The 15th ran past midnight, so this day starts around 00:00 and is mostly the "ship" phase: making the evidence easy to find and checking my own work. Times are from the session clock.
 
+Prompts, in order: "we are in 16 october now", then "I don't have time for recording but you can add some captions if you want", "How can I revoke the token?", "What do you mean by that?"; "i deleted the token. Please give me the evaluation sheet for labelling"; "The csv file is updated now please check it"; "data is missing means cannot tell"; "did you update the github repo?"; "The readme lacks some information and routing to the folders content and details and the problem statement is too short (also i can't find the screenshot and videos)"; "Now it is ready for submission right?"; "what are you doing?"; and, last, "in the ai usage log i see you didn't add 16 october details at all", which is why this section was rewritten.
+
+- **About 00:05, video and token.** I had no time to record my own narration, so Copilot re-recorded the scripted walkthrough with on-screen captions (68 seconds), checking a frame to confirm the captions were readable. I asked how to revoke the Hugging Face token I had pasted into the chat and what the "nobody reviewed the labels" warning meant. Copilot explained both, and I deleted the token myself.
+- **About 00:12, token check and labelling sheet.** Copilot confirmed the old token now returns 401, then built a blind labelling sheet of 24 pairs (Excel with a dropdown, a printable PDF and a CSV) with a separate answer key, a scorer and tests. The sheet hides the policy's answer, my gold label, the ground truth and the free-text note.
+- **About 00:27, I answered the sheet and Copilot scored it.** I filled in the CSV myself. The first scoring run found zero answers because my edit to the scorer had not applied (a multi-line text replacement missed because of line endings), so I made the scorer accept natural wording ("same", "different", "unsure") and added a test. I told Copilot that "data is missing" means "cannot tell", so six answers were counted that way, and my original file is kept untouched in `labelling/completed/owner_as_returned.csv`. Copilot then asked who had answered the sheet; I said I had, so every document now calls it a second pass by the project owner, not an independent review.
+- **Result.** 20 of 24 answers agree with the policy, and I agreed with all 14 of the policy's firm calls. We made the same mistake on the shared-student-ID pair. Details are in `docs/evaluation_protocol.md`.
+- **A bug in the scorer.** The first version reported 0 cases of the policy recommending a match for two different people; the real number is 1. Copilot found it by checking that pair by hand: booleans read back from a CSV are text, and the test had only used in-memory booleans. It was fixed and covered by a new test.
+- **About 00:37, GitHub check.** I asked whether GitHub was updated. Instead of just saying yes, Copilot compared the remote and local commits and listed the files on the remote.
+- **About 00:40, README rewrite.** I said the README lacked detail and routing, the problem statement was too short, and I could not find the screenshots or video. Copilot rewrote the README (a demo section, a long problem statement with a table of spelling variants, how it works, results, quick start, a map of every folder, reviewer table), added short READMEs for `data/`, `outputs/` and `docs/`, and made an animated preview GIF from the screenshots (the available ffmpeg could not encode GIFs). All 66 relative links were checked, and the page was opened on GitHub to confirm the images render.
+- **About 00:51, my own edit on GitHub.** I embedded the walkthrough video in the README using GitHub's uploader so it plays inline. Copilot noticed the remote was one commit ahead of its copy, pulled my commit first so nothing was overwritten, and then continued.
+- **About 00:52, final check.** When I asked if it was ready, Copilot ran a last sweep: it found two stale test counts (40 instead of 46), fixed them, re-ran all 46 tests, checked the repository for secrets (none), confirmed local and remote matched, and rebuilt the submission PDFs and zip.
+- **My own checks today.** I answered the labelling sheet from the sheet alone, deleted the token, edited the README on GitHub, and noticed this log was missing today's work.
 ## Where the AI was wrong or overclaimed
 - The first documents claimed more than had been checked (an app never launched, a similarity function never compared to RapidFuzz). Both were later checked and the documents corrected.
 - The README's "zero false merges" held only until the hard set was added.
 - A first edit of the model comparison script left an outdated field in its summary; a test caught it.
 - A first rewrite of the write-up said I had found the problem "by working through everyday records work", which I had not told it. I corrected it with the real origin: my own name.
 - The Final directive lost a sentence during one edit; it was noticed and restored.
+- When asked to rewrite the 16 October entry, the first version of the log had left most of that day out. This section is the correction.
+- Two stale test counts (40 instead of 46) survived in the Final directive and the plan until the final check.
 - The first version of the labelling scorer reported 0 cases of the policy recommending a match for two different people. The real number is 1 (the shared-ID pair). The bug was that booleans read back from a CSV are text, and the test had only used in-memory booleans. It was caught by checking a pair by hand, then fixed and covered by a new test.
 
 ## Checks by the AI versus checks by a person
