@@ -36,7 +36,7 @@ It took four calendar days, not five, and the log says so rather than stretching
 | Model stress | 58 pairs given to Qwen2.5-0.5B-Instruct, CPU, one run | My checker rejected 57 of 58 outputs and let no upgrade through. Shown only two names it said SAME on 6 of 27 pairs of different people. The policy handled all six correctly |
 
 ## Limits
-Synthetic data only, and Latin script only (an Arabic-script name was only surfaced through a matching email). The labels and the policy were written by the same author with AI help, and only a test has checked the labels against ground truth; nobody else has reviewed them. The model result is one very small model in one run. It is not ready for real personal records.
+Synthetic data only, and Latin script only (an Arabic-script name was only surfaced through a matching email). The labels and the policy were written by the same author with AI help, and only a test has checked the labels against ground truth; nobody else has reviewed them (a blind 24-pair sheet for an independent reviewer is prepared in `labelling/` but has not been answered). The model result is one very small model in one run. It is not ready for real personal records.
 
 ## Where things are
 Repository: https://github.com/MennaElnashar/Name-Bridge. Start with `README.md`. The five deliverables are `intent.md`, `Final directive.md`, the working app (run commands in the README, walkthrough in `docs/walkthrough.md`), this write-up, and `docs/ai_usage_log.md`. Evidence is in `docs/evaluation_protocol.md`, `docs/retrospective.md` and `outputs/`.

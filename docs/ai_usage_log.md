@@ -56,6 +56,8 @@ Prompts, in order: "Push the repo here https://github.com/MennaElnashar/Name-Bri
 - I reviewed every document against the evaluation criteria and the real timeline, and asked for the log, the write-up and the reviewer map to be corrected where they claimed too much or too little.
 - Prompts: asking for a captioned version of the walkthrough video (I had no time to record my own narration), and asking how to revoke the Hugging Face token I had pasted into the chat.
 - Copilot re-recorded the scripted walkthrough with on-screen captions and rebuilt the submission bundle.
+- I revoked the Hugging Face token (Copilot confirmed the old token now returns 401).
+- Prompt: "Please give me the evaluation sheet for labelling". Copilot built `src/labelling.py`, an Excel and a printable PDF sheet of 24 blind pairs, a separate answer key, a scorer and 4 tests (`labelling/README.md`). Nobody has answered the sheet yet; the sheet is the planned fix for the weakest point below.
 
 ## Where the AI was wrong or overclaimed
 - The first documents claimed more than had been checked (an app never launched, a similarity function never compared to RapidFuzz). Both were later checked and the documents corrected.

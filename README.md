@@ -18,6 +18,7 @@ pip install -r requirements.txt
 python -m unittest discover -s tests -t .   # or: pytest
 python -m src.evaluate                      # evaluation (synthetic set and hard set)
 python -m src.stress                        # stress tests
+python -m src.labelling make                # optional: blind labelling sheet for an independent reviewer (see labelling/README.md)
 streamlit run app.py                        # app (works with no model)
 python -m src.compare_models <model id or local folder> [limit]   # optional: model comparison (needs transformers, torch); a local folder loads offline
 python -m src.compare_models <model id> [limit] --remote           # optional: hosted model; needs HF_TOKEN and account credits, sends the prompts out
@@ -27,9 +28,9 @@ Use data/synthetic_names.csv. Do not upload real personal records to a public de
 ## Status
 | Item | State |
 |---|---|
-| Deterministic pipeline, policy, export | Built; 40 tests pass (unittest and pytest) |
+| Deterministic pipeline, policy, export | Built; 44 tests pass (unittest and pytest) |
 | Evaluation, hard set and stress test | Run with RapidFuzz 3.14.6; results in docs/evaluation_protocol.md |
-| Gold-label audit | Automated check against ground-truth entity ids (tests/test_gold_labels.py) |
+| Gold-label audit | Automated check against ground-truth entity ids (tests/test_gold_labels.py). An independent blind labelling sheet (24 pairs) is prepared in labelling/ and has not been answered yet |
 | Streamlit app | Launched and exercised (Streamlit 1.50); demo in docs/walkthrough.md |
 | Local model layer | Guard and 10 guard tests built. Comparison run once with a small local model (Qwen2.5-0.5B-Instruct, CPU): the guard rejected 57 of 58 outputs and let no upgrade through; names-only, the model said SAME on 6 of 27 different-people pairs. See docs/evaluation_protocol.md. One small model only |
 | Publishing | Published: https://github.com/MennaElnashar/Name-Bridge |
