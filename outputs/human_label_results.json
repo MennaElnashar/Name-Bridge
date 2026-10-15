@@ -1,0 +1,45 @@
+{
+  "pairs_answered": 24,
+  "agree_with_policy": 20,
+  "pairs_with_gold_label": 22,
+  "agree_with_gold": 19,
+  "human_said_same_policy_said_different": 0,
+  "human_said_different_policy_said_match": 0,
+  "policy_match_where_truth_is_different_people": 1,
+  "human_cannot_tell_where_policy_decided": 0,
+  "human_decided_where_policy_needs_review": 4,
+  "disagreements": [
+    {
+      "Pair": "P01",
+      "record_id_a": "41",
+      "record_id_b": "42",
+      "human": "likely_different",
+      "policy": "needs_review",
+      "gold": "needs_review"
+    },
+    {
+      "Pair": "P18",
+      "record_id_a": "121",
+      "record_id_b": "122",
+      "human": "likely_different",
+      "policy": "needs_review",
+      "gold": "needs_review"
+    },
+    {
+      "Pair": "P19",
+      "record_id_a": "30",
+      "record_id_b": "31",
+      "human": "likely_match",
+      "policy": "needs_review",
+      "gold": "needs_review"
+    },
+    {
+      "Pair": "P24",
+      "record_id_a": "108",
+      "record_id_b": "115",
+      "human": "likely_different",
+      "policy": "needs_review",
+      "gold": ""
+    }
+  ]
+}

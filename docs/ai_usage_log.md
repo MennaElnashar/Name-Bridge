@@ -57,7 +57,7 @@ Prompts, in order: "Push the repo here https://github.com/MennaElnashar/Name-Bri
 - Prompts: asking for a captioned version of the walkthrough video (I had no time to record my own narration), and asking how to revoke the Hugging Face token I had pasted into the chat.
 - Copilot re-recorded the scripted walkthrough with on-screen captions and rebuilt the submission bundle.
 - I revoked the Hugging Face token (Copilot confirmed the old token now returns 401).
-- Prompt: "Please give me the evaluation sheet for labelling". Copilot built `src/labelling.py`, an Excel and a printable PDF sheet of 24 blind pairs, a separate answer key, a scorer and 4 tests (`labelling/README.md`). Nobody has answered the sheet yet; the sheet is the planned fix for the weakest point below.
+- Prompts: "Please give me the evaluation sheet for labelling", then "The csv file is updated now please check it", then "data is missing means cannot tell". Copilot built `src/labelling.py` (Excel and printable PDF sheets of 24 blind pairs, a separate answer key, a scorer) with tests. I filled in the CSV myself, so this is a second pass by the project owner, not an independent review. Copilot scored it: 20 of 24 answers agree with the policy, I agreed with all 14 of the policy's firm calls, and we made the same mistake on the shared-student-ID pair (details in `docs/evaluation_protocol.md`). The scorer was extended to accept natural wording ("same", "different"), and my original answers are kept untouched in `labelling/completed/owner_as_returned.csv`.
 
 ## Where the AI was wrong or overclaimed
 - The first documents claimed more than had been checked (an app never launched, a similarity function never compared to RapidFuzz). Both were later checked and the documents corrected.
@@ -65,7 +65,9 @@ Prompts, in order: "Push the repo here https://github.com/MennaElnashar/Name-Bri
 - A first edit of the model comparison script left an outdated field in its summary; a test caught it.
 - A first rewrite of the write-up said I had found the problem "by working through everyday records work", which I had not told it. I corrected it with the real origin: my own name.
 - The Final directive lost a sentence during one edit; it was noticed and restored.
+- The first version of the labelling scorer reported 0 cases of the policy recommending a match for two different people. The real number is 1 (the shared-ID pair). The bug was that booleans read back from a CSV are text, and the test had only used in-memory booleans. It was caught by checking a pair by hand, then fixed and covered by a new test.
 
 ## Checks by the AI versus checks by a person
 - The gold labels are checked against ground truth by a test that the AI wrote. That is a consistency check.
-- No other person has reviewed the gold labels, the hard cases or the walkthrough. Read every number in this repository with that in mind.
+- I labelled a blind 24-pair sample myself on 16 October. That is a second pass by the project owner, who knows the policy, not an independent review.
+- No one outside the project has reviewed the gold labels, the hard cases or the walkthrough. Read every number in this repository with that in mind.

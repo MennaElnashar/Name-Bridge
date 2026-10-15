@@ -25,6 +25,9 @@ QUOTA = {"likely_match": 8, "likely_different": 6, "needs_review": 10}  # 24 pai
 SHOWN = ["name", "email", "student_id", "org"]
 ANSWERS = {"Same person": "likely_match", "Different people": "likely_different", "Cannot tell": "needs_review"}
 MISSING = "(not recorded)"
+ALIASES = {"same person": "Same person", "same": "Same person", "different people": "Different people",
+           "different": "Different people", "diff": "Different people", "cannot tell": "Cannot tell",
+           "can't tell": "Cannot tell", "cant tell": "Cannot tell", "unsure": "Cannot tell", "unknown": "Cannot tell"}
 
 
 def _gold(gold_file):
@@ -129,8 +132,8 @@ def write_sheet(df, path):
 def score(sheet_df, key_df):
     """Compare a reviewer's answers with the policy and the gold labels."""
     d = sheet_df[["Pair", "Your answer"]].merge(key_df, left_on="Pair", right_on="pair")
-    d["Your answer"] = d["Your answer"].astype(str).str.strip()
-    d = d[d["Your answer"].isin(ANSWERS)].copy()
+    d["Your answer"] = d["Your answer"].astype(str).str.strip().str.lower().map(ALIASES)  # accept natural wording
+    d = d[d["Your answer"].notna()].copy()
     d["human"] = d["Your answer"].map(ANSWERS)
     d["gold"] = d["gold"].fillna("").astype(str)
     out = {"pairs_answered": int(len(d))}
@@ -142,7 +145,7 @@ def score(sheet_df, key_df):
     out["agree_with_gold"] = int((g.human == g.gold).sum())
     out["human_said_same_policy_said_different"] = int(((d.human == "likely_match") & (d.policy == "likely_different")).sum())
     out["human_said_different_policy_said_match"] = int(((d.human == "likely_different") & (d.policy == "likely_match")).sum())
-    out["policy_match_where_truth_is_different_people"] = int(((d.policy == "likely_match") & (~d.truth_same_person.astype(bool))).sum())
+    out["policy_match_where_truth_is_different_people"] = int(((d.policy == "likely_match") & (d.truth_same_person.astype(str).str.lower() != "true")).sum())
     out["human_cannot_tell_where_policy_decided"] = int(((d.human == "needs_review") & (d.policy != "needs_review")).sum())
     out["human_decided_where_policy_needs_review"] = int(((d.human != "needs_review") & (d.policy == "needs_review")).sum())
     out["disagreements"] = d[d.human != d.policy][["Pair", "record_id_a", "record_id_b", "human", "policy", "gold"]].to_dict("records")

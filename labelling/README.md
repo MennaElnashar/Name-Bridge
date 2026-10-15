@@ -26,4 +26,8 @@ It prints, and writes to `outputs/human_label_results.json`: how many answers ag
 Agreement with the policy shows the policy's three-way calls look sensible to a second person; it does not prove accuracy. Disagreements are the useful part: each one is a case where the author's judgement and a second person's differ, and should be discussed in `docs/retrospective.md`. With 24 pairs and one reviewer, treat it as a spot check.
 
 ## Status
-Prepared on 16 October 2026. No reviewer has answered it yet, so there are no results; until one does, the documents continue to say that nobody else has reviewed the labels. Regenerate the files with `python -m src.labelling make` (needs `openpyxl`).
+Answered once, on 16 October 2026, by the project owner from the sheet alone. That is a second pass by the person who directed the project and knows its rules, **not an independent review**; nobody outside the project has answered it yet.
+- `completed/owner_as_returned.csv` is the file exactly as returned (answers "same" and "different").
+- `completed/owner_cannot_tell_applied.csv` is the version that was scored: six answers (P04, P06, P07, P13, P17, P20) whose comment said "data is missing" were counted as "Cannot tell", which the owner confirmed is what was meant. The original answers are kept in the "Original answer" column.
+- Results are in `docs/evaluation_protocol.md` and `outputs/human_label_results.json`.
+The scorer accepts natural wording ("same", "different", "unsure") as well as the dropdown values. Regenerate the sheet with `python -m src.labelling make` (needs `openpyxl`).

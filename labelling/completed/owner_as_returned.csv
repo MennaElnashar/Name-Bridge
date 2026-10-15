@@ -1,0 +1,25 @@
+﻿Pair,A Name,A Email,A Student ID,A Organization,B Name,B Email,B Student ID,B Organization,Your answer,Comment (optional)
+P01,Rana Fathy,rana@example.test,S9001,(not recorded),Rana Fathi,rana@example.test,S9002,(not recorded),different,different ids
+P02,Ahmed Hasan,(not recorded),S3001,Alex Univ,Ahmed Hassan,a.hassan@example.test,S3001,Alex Univ,same,
+P03,Laila Karim,l.k@example.test,S500,(not recorded),Leila Karim,l.k@example.test,S500,(not recorded),same,
+P04,Mohamed Ali,m.ali@example.test,S2001,Cairo Univ,Mohammed Aly,(not recorded),(not recorded),(not recorded),same,data is missing
+P05,Mennatallah Hassan,other.person@example.test,S1002,Cairo Univ,Menna Allah Hassan,menna.hassan@example.test,(not recorded),Alex Univ,different,
+P06,Omar Nabil,(not recorded),(not recorded),(not recorded),Omar Nabil,(not recorded),(not recorded),(not recorded),same,data is missing
+P07,Mohamed Ahmad,(not recorded),(not recorded),(not recorded),Mohamed Ahmed,(not recorded),(not recorded),(not recorded),same,data is missing
+P08,Ahmed Hasan,(not recorded),S3001,Alex Univ,Ahmad Hassan,ahmad.h@example.test,S3002,Alex Univ,different,
+P09,Aly Hasan,(not recorded),S300,(not recorded),Ali Hassan,(not recorded),S300,(not recorded),same,
+P10,Leila Karim,l.k@example.test,S500,(not recorded),Layla Karim,l.k@example.test,S500,(not recorded),same,
+P11,Fatma Ibrahim,f.ibrahim2@example.test,S4002,Alex Univ,Fatma Ibrahim,f.ibrahim1@example.test,S4001,Cairo Univ,different,
+P12,Menna Allah Hassan,menna.hassan@example.test,(not recorded),Alex Univ,Mennatullah Hassan,menna.hassan@example.test,S1001,Alex Univ,same,
+P13,Salma,(not recorded),(not recorded),(not recorded),Selma,(not recorded),(not recorded),(not recorded),same,data is missing
+P14,Khalid Mansoor,k.mansoor@example.test,S7002,(not recorded),Khaled Mansour,k.mansour@example.test,S7001,(not recorded),different,different ids
+P15,Mohamed Ali,m.ali@example.test,S2001,Cairo Univ,Muhammad Ali,m.ali@example.test,S2001,Cairo Univ,same,
+P16,Ahmad Hassan,ahmad.h@example.test,S3002,Alex Univ,Ahmed Hassan,a.hassan@example.test,S3001,Alex Univ,different,different ids
+P17,Mohamed Ali Hassan,(not recorded),(not recorded),(not recorded),Mohamed Ali,mali.ar@example.test,(not recorded),(not recorded),same,data is missing
+P18,Samir Adel,samir@example.test,S400,(not recorded),Sameer Adil,samir@example.test,S401,(not recorded),different,
+P19,Ahmed El Sayed,(not recorded),(not recorded),(not recorded),Ahmed Al-Sayed,(not recorded),(not recorded),(not recorded),same,
+P20,Abd El Rahman Mahmoud,(not recorded),(not recorded),(not recorded),Abdul Rahman Mahmoud,(not recorded),(not recorded),(not recorded),same,data is missing
+P21,Salma Nabil,s.nabil@example.test, S200 ,(not recorded),Salma Nabil,S.Nabil@Example.test,S200,(not recorded),same,
+P22,Youssef Khaled,youssef.k@example.test,(not recorded),(not recorded),Yusuf Khalid,youssef.k@example.test,S5005,(not recorded),same,
+P23,Abdullah Said,a.said@example.test,S600,(not recorded),Abdulla Sayed,a.sayed@example.test,S601,(not recorded),different,
+P24,Mo Ali Hassan,(not recorded),(not recorded),(not recorded),Ali Hassan,(not recorded),S300,(not recorded),different,Different names

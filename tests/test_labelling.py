@@ -1,4 +1,4 @@
-﻿"""The labelling sheet must be reproducible, must not leak answers, and the scorer must count correctly."""
+"""The labelling sheet must be reproducible, must not leak answers, and the scorer must count correctly."""
 import re
 import unittest
 
@@ -38,6 +38,23 @@ class LabellingSheet(unittest.TestCase):
         res2, _ = labelling.score(answers, key)
         self.assertEqual(res2["agree_with_policy"], len(key) - 1)
         self.assertEqual(len(res2["disagreements"]), 1)
+
+    def test_natural_wording_is_accepted(self):
+        _, key = labelling.build()
+        answers = pd.DataFrame({"Pair": key.pair[:3], "Your answer": ["same", " Different ", "Unsure"]})
+        res, d = labelling.score(answers, key.iloc[:3])
+        self.assertEqual(res["pairs_answered"], 3)
+        self.assertEqual(list(d.human), ["likely_match", "likely_different", "needs_review"])
+
+    def test_truth_column_read_from_file_as_text(self):
+        # the real scoring path reads the key from CSV, where booleans arrive as the strings "True"/"False"
+        _, key = labelling.build()
+        key = key.astype(str)
+        pol_to_ans = {v: k for k, v in labelling.ANSWERS.items()}
+        answers = pd.DataFrame({"Pair": key.pair, "Your answer": key.policy.map(pol_to_ans)})
+        res, _ = labelling.score(answers, key)
+        expected = int(((key.policy == "likely_match") & (key.truth_same_person == "False")).sum())
+        self.assertEqual(res["policy_match_where_truth_is_different_people"], expected)
 
     def test_blank_answers_are_ignored(self):
         _, key = labelling.build()

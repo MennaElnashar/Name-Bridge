@@ -63,8 +63,25 @@ The model mostly abstained (40 of 58 UNSURE), which is the right instinct. But 6
 | final_default_config | 21/21 | 1 (115/116) | 0 | 8 |
 The false merge is two different people with similar names and the same student id: the policy trusts one matching unique identifier. The gold label for that pair follows the policy, and the audit test lists it as a documented exception. The 8 outside-gold candidates are pairs of different people with similar names; none is likely_match. Raw output: outputs/hard_results.json.
 
-## Independent labelling check (prepared, not yet answered)
-All gold labels were written by the author of the policy. To get a second opinion, `python -m src.labelling make` builds a blind sheet of 24 candidate pairs (8 likely_match, 6 likely_different, 10 needs_review, sampled with seed 16 from both sets) showing only name, email, student ID and organization, with the policy answer, gold label, ground truth and free-text notes hidden. `python -m src.labelling score <file>` compares a reviewer's answers with the policy and the gold labels and writes `outputs/human_label_results.json`. Details and files are in `labelling/README.md`. No reviewer has answered it yet, so there are no results here, and every agreement figure above should still be read as agreement with the author's own labels.
+## Second labelling pass: 24 blind pairs, by the project owner
+The sheet described in `labelling/README.md` was answered on 16 October 2026 by me, the project owner, from the sheet alone. This is a second pass, not an independent review: I directed the project and know the policy's rules. No one else has answered it.
 
+Scoring: six answers (P04, P06, P07, P13, P17, P20) where my comment said "data is missing" were counted as "Cannot tell", which is what I meant. Without that adjustment only 14 of 24 answers agree with the policy, because those six pairs were answered "same".
+
+| Measure | Result |
+|---|---|
+| Answers that agree with the policy | 20 of 24 |
+| Answers that agree with the author's gold labels | 19 of 22 pairs that have one |
+| The policy's firm calls (8 likely_match, 6 likely_different) that I agreed with | 14 of 14 |
+| Pairs I answered "Cannot tell" | 6, and the policy says needs_review on all six |
+| Pairs where the policy abstained and I decided | 4: P01 different (right), P18 different (wrong: same person), P19 same (right, from spelling alone), P24 different (right) |
+| Against ground truth | My firm answers: 16 of 18 right. The policy's firm calls: 13 of 14 right |
+| A mistake we share | P09, Aly Hasan and Ali Hassan: same student ID, no email, two different people. The policy said likely_match and so did I |
+
+What this shows:
+- Where the policy made a firm call, a person using the same fields agreed every time, including the one wrong call. The shared-ID false merge is therefore not a quirk of the code: a careful person makes it too from the data shown. That strengthens the open decision in `docs/retrospective.md` about capping a lone matching ID at needs_review.
+- Every disagreement is the policy abstaining while I committed. Two of those (P01 Rana Fathy / Fathi and P18 Samir Adel / Sameer Adil) have the same shape, a matching email plus a conflicting student ID. I was right on one and wrong on the other, so that mixed evidence really is ambiguous, which supports rule 3 in the Final directive.
+- On P19 (no identifiers at all) I decided from spelling alone and happened to be right; on three similar no-identifier pairs I answered "Cannot tell". That inconsistency is exactly why the policy does not decide from spelling.
+Limits: one labeller who is not independent, 24 pairs. It is a spot check. Raw files: `labelling/completed/`, scored output `outputs/human_label_results.json`.
 ## Limits of this evidence
 Small synthetic set written by the same author as the labels and the fix; 29/29 is expected after a fix aimed at those cases and is not evidence of generalization. The first run used a pure-python implementation of the fuzz.ratio definition; re-running `python -m src.evaluate` and `python -m src.stress` with real RapidFuzz 3.14.6 gave the same gold agreement, false merges, threshold sweep and homonym workload numbers. Unit tests (40) pass under unittest.
