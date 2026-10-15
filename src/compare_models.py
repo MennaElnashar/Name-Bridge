@@ -5,13 +5,19 @@ Two measurements on every candidate pair from data/synthetic_names.csv and data/
      Reports how often its output is accepted, how often it downgrades, how often it is rejected and why.
   B. names only (hypothesis 3): the model sees only the two names and is asked whether they are the same
      person. Reports false merges (SAME on different people) against ground truth entity_id.
-Needs the optional packages in requirements.txt (transformers, torch). Greedy decoding, no sampling.
+Needs the optional packages in requirements.txt (transformers, torch) unless --remote is used.
+Greedy decoding, no sampling.
+  python -m src.compare_models <model id or folder> [limit]            local model
+  python -m src.compare_models <model id> [limit] --remote             hosted model, needs HF_TOKEN
 model_id may be a Hugging Face id or a local folder containing a chat model (config.json, tokenizer, weights);
 a local folder is loaded offline, so no network access is needed."""
 import json
+import os
 import platform
 import sys
 import time
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 from .llm_review import review_pair
@@ -22,6 +28,36 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_MODEL = "Qwen/Qwen2.5-1.5B-Instruct"
 NAME_ONLY_PROMPT = ("Two records have these names written in Latin script.\nName 1: {a}\nName 2: {b}\n"
                     "Are they the same person? Answer with exactly one word: SAME, DIFFERENT or UNSURE.")
+
+
+REMOTE_URL = "https://router.huggingface.co/v1/chat/completions"
+
+
+def load_remote_generator(model_id):
+    """Hosted inference: nothing is downloaded, but the prompts (synthetic records here) are sent to
+    Hugging Face. The token comes from the HF_TOKEN environment variable and is never stored."""
+    token = os.environ.get("HF_TOKEN")
+    if not token:
+        raise SystemExit("Remote mode needs a Hugging Face access token in the HF_TOKEN environment variable.")
+
+    def generate(prompt, max_new_tokens):
+        body = {"model": model_id, "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": max_new_tokens, "temperature": 0}
+        req = urllib.request.Request(REMOTE_URL, data=json.dumps(body).encode("utf-8"),
+                                     headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            return json.load(resp)["choices"][0]["message"]["content"]
+
+    try:  # fail fast with the server's own message (no credits, model not enabled, bad token)
+        generate("Reply with OK.", 2)
+    except urllib.error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", "replace")[:300]
+        raise SystemExit(f"Hosted model call failed (HTTP {exc.code}): {detail}")
+    except urllib.error.URLError as exc:
+        raise SystemExit(f"Could not reach the hosted API: {exc.reason}")
+
+    return generate, {"model_id": model_id, "backend": "Hugging Face hosted inference (remote)",
+                      "decoding": "temperature 0", "device": "remote"}
 
 
 def load_generator(model_id):
@@ -57,9 +93,9 @@ def collect_pairs():
     return sets
 
 
-def main(model_id=DEFAULT_MODEL, limit=None):
+def main(model_id=DEFAULT_MODEL, limit=None, remote=False):
     limit = int(limit) if limit else None
-    generate, info = load_generator(model_id)
+    generate, info = load_remote_generator(model_id) if remote else load_generator(model_id)
     info.update({"python": platform.python_version(), "machine": platform.processor()})
     guarded, name_only = [], []
     t_guard = t_name = 0.0
@@ -82,7 +118,10 @@ def main(model_id=DEFAULT_MODEL, limit=None):
                             "fallback_reason": res["fallback_reason"],
                             "model_recommendation": res["recommendation"]})
             t0 = time.time()
-            raw = generate(NAME_ONLY_PROMPT.format(a=a["name"], b=b["name"]), 6).strip().upper()
+            try:
+                raw = generate(NAME_ONLY_PROMPT.format(a=a["name"], b=b["name"]), 6).strip().upper()
+            except Exception as exc:  # an unreachable or failing model is recorded, not hidden
+                raw = f"ERROR {type(exc).__name__}"
             t_name += time.time() - t0
             answer = "SAME" if raw.startswith("SAME") else "DIFFERENT" if raw.startswith("DIFF") else \
                 "UNSURE" if raw.startswith("UNSURE") else "OTHER"
@@ -123,4 +162,5 @@ def main(model_id=DEFAULT_MODEL, limit=None):
 
 
 if __name__ == "__main__":
-    main(*(sys.argv[1:3] or [DEFAULT_MODEL]))
+    args = [a for a in sys.argv[1:] if a != "--remote"]
+    main(*(args[:2] or [DEFAULT_MODEL]), remote="--remote" in sys.argv)

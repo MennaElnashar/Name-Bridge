@@ -14,7 +14,7 @@ I started out believing the key lever was the name-similarity setting, and that 
 - Then I over-learned it. I began to treat "an identifier matches" as safe. A harder second set showed otherwise: two different people who share one student ID are still recommended as a match. One matching identifier is strong evidence, not proof.
 
 ## How I used AI
-ChatGPT came first, for brainstorming the problem and shaping the five-day plan. I then gave the plan to Claude in a build session, which produced the code, data, tests, app and first documents. A second session in VS Code with GitHub Copilot ran everything, found where the documents were out of date, and fixed and extended the project, including the hard set and the gold-label audit. The full prompts, who did what, and where the AI was wrong are in `docs/ai_usage_log.md`. One honest point: the work was compressed into two sessions on one day, so the log follows the plan's five phases rather than pretending to be five calendar days.
+ChatGPT came first, for brainstorming the problem and shaping the five-day plan. I then gave the plan to Claude in a build session, which produced the code, data, tests, app and first documents. A second session in VS Code with GitHub Copilot ran everything, found where the documents were out of date, and fixed and extended the project, including the hard set and the gold-label audit. The full prompts, who did what, and where the AI was wrong are in `docs/ai_usage_log.md`. One honest point: the work was compressed into a few sessions on 2026-10-14 and 2026-10-15, so the log follows the plan's five phases rather than pretending to be five calendar days.
 
 ## What failed
 1. The first baseline missed spacing variants. "Mennatullah Hassan" and "Menna Allah Hassan" with the same email scored below the threshold and were reported as different. Three true pairs were never surfaced (20 of 29 agreed). Fix: normalize spacing and common vowel variants (29 of 29, still no false merges), with a regression test.
@@ -22,15 +22,16 @@ ChatGPT came first, for brainstorming the problem and shaping the five-day plan.
 3. The app could show a previous file's results when a new CSV had the same shape. Found on review, fixed.
 4. The first documents claimed more than had been checked (an app never launched, a similarity function never compared to RapidFuzz). Both were later checked, and the documents corrected.
 5. The hard set exposed a real false merge: the shared student ID case. I left it in the results.
-6. The model comparison could not be run. The network proxy blocked huggingface.co, so there are no model results. The script is ready and also accepts a local model folder.
+6. The model comparison took several attempts. The network proxy blocked model downloads for a long time; when it opened, the 3 GB Qwen2.5-1.5B download was too slow, and a hosted API needed credits the account did not have. I finally ran Qwen2.5-0.5B-Instruct on CPU. It was too weak to follow the required output format: my checker rejected 57 of its 58 outputs and let no upgrade through, so it harmed nothing and helped nothing. Shown only two names, it said SAME on 6 of 27 pairs of different people (identical names, one-letter variants), though it answered UNSURE on most pairs. One small model, one run: a hint about hypothesis 3, not a verdict.
 
 ## Results
 - Synthetic set (42 records, 29 pairs): name-only gets 2 of 29 with 8 false merges. The final policy gets 29 of 29 with 0 false merges.
 - Stress growth: baseline on that set, then a threshold sweep and a 120-person homonym test (7,140 pairs, 49 flagged), then a harder 36-record set with Arabic-script names, diacritics, a nickname, `ibn`/`bin`, dropped "Al" and reused IDs. There the policy agrees on 21 of 21 labelled pairs but makes 1 false merge; name-only gets 7 of 21 with 10 false merges.
-- 37 tests pass, and the app launches. See `docs/walkthrough.md`.
+- Model comparison (Qwen2.5-0.5B-Instruct, CPU, one run, 58 pairs): guard accepted 1 of 58 outputs and no upgrade; names only, the model said SAME on 6 of 27 pairs of different people. The policy handled all six correctly.
+- 40 tests pass, and the app launches. See `docs/walkthrough.md`.
 
 ## Limits
-Synthetic data only, Latin script only (an Arabic-script name was only surfaced through a matching email). The labels were written by the same author as the policy, and only a test has checked them against the ground truth. No person has reviewed them. No model results. The project is local and not published on GitHub; the walkthrough is written rather than recorded. It is not ready for real personal records.
+Synthetic data only, Latin script only (an Arabic-script name was only surfaced through a matching email). The labels were written by the same author as the policy, and only a test has checked them against the ground truth. No person has reviewed them. Model results come from one very small model in one run. The walkthrough is written rather than recorded. It is not ready for real personal records.
 
 ## Where things are
-`intent.md`, `Final directive.md`, `README.md`, `docs/ai_usage_log.md`, `docs/walkthrough.md`, `docs/evaluation_protocol.md`, `docs/retrospective.md`, and the result files in `outputs/`.
+Repository target: https://github.com/MennaElnashar/Name-Bridge (pushing needs the owner's GitHub sign-in). `intent.md`, `Final directive.md`, `README.md`, `docs/ai_usage_log.md`, `docs/walkthrough.md`, `docs/evaluation_protocol.md`, `docs/retrospective.md`, and the result files in `outputs/`.

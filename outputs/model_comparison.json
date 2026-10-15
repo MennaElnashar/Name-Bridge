@@ -1,0 +1,1146 @@
+{
+  "environment": {
+    "model_id": "C:\\Users\\elnasharm\\Downloads\\namebridge_models\\qwen2.5-0.5b-instruct",
+    "torch": "2.14.1+cpu",
+    "dtype": "float32",
+    "device": "cpu",
+    "decoding": "greedy",
+    "revision": null,
+    "python": "3.13.5",
+    "machine": "Intel64 Family 6 Model 181 Stepping 0, GenuineIntel"
+  },
+  "summary": {
+    "pairs": 58,
+    "guarded_review": {
+      "accepted": 1,
+      "rejected_and_fell_back": 57,
+      "rejection_reasons": {
+        "evidence fields must be lists of strings": 9,
+        "malformed or missing keys": 14,
+        "contradicts policy recommendation": 32,
+        "invalid recommendation value": 2
+      },
+      "accepted_agree_with_policy": 1,
+      "accepted_downgraded_to_needs_review": 0,
+      "accepted_upgrades_over_policy": 0,
+      "seconds_total": 391.1,
+      "seconds_per_pair": 6.74
+    },
+    "names_only": {
+      "different_people_pairs": 27,
+      "model_said_SAME_on_different_people": 6,
+      "model_said_UNSURE_on_different_people": 20,
+      "same_person_pairs": 31,
+      "model_said_SAME_on_same_person": 9,
+      "answers_not_parsable": 3,
+      "seconds_total": 34.8,
+      "seconds_per_pair": 0.6
+    }
+  },
+  "guarded": [
+    {
+      "set": "synthetic_names.csv",
+      "a": "13",
+      "b": "14",
+      "policy": "likely_different",
+      "status": "fallback_to_policy",
+      "fallback_reason": "evidence fields must be lists of strings",
+      "model_recommendation": "likely_different"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "24",
+      "b": "25",
+      "policy": "likely_different",
+      "status": "fallback_to_policy",
+      "fallback_reason": "evidence fields must be lists of strings",
+      "model_recommendation": "likely_different"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "1",
+      "b": "3",
+      "policy": "likely_different",
+      "status": "fallback_to_policy",
+      "fallback_reason": "evidence fields must be lists of strings",
+      "model_recommendation": "likely_different"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "2",
+      "b": "3",
+      "policy": "likely_different",
+      "status": "fallback_to_policy",
+      "fallback_reason": "evidence fields must be lists of strings",
+      "model_recommendation": "likely_different"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "10",
+      "b": "11",
+      "policy": "likely_different",
+      "status": "fallback_to_policy",
+      "fallback_reason": "evidence fields must be lists of strings",
+      "model_recommendation": "likely_different"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "11",
+      "b": "12",
+      "policy": "likely_different",
+      "status": "fallback_to_policy",
+      "fallback_reason": "evidence fields must be lists of strings",
+      "model_recommendation": "likely_different"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "10",
+      "b": "12",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "20",
+      "b": "21",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "38",
+      "b": "39",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "1",
+      "b": "2",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "4",
+      "b": "5",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "15",
+      "b": "17",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "4",
+      "b": "6",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "7",
+      "b": "8",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "15",
+      "b": "16",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "18",
+      "b": "19",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "41",
+      "b": "42",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "invalid recommendation value",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "26",
+      "b": "27",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "7",
+      "b": "9",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "8",
+      "b": "9",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "28",
+      "b": "29",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "30",
+      "b": "31",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "31",
+      "b": "32",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "5",
+      "b": "6",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "16",
+      "b": "17",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "30",
+      "b": "32",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "38",
+      "b": "40",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "39",
+      "b": "40",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "22",
+      "b": "23",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "134",
+      "b": "136",
+      "policy": "likely_different",
+      "status": "fallback_to_policy",
+      "fallback_reason": "evidence fields must be lists of strings",
+      "model_recommendation": "likely_different"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "103",
+      "b": "104",
+      "policy": "likely_different",
+      "status": "fallback_to_policy",
+      "fallback_reason": "evidence fields must be lists of strings",
+      "model_recommendation": "likely_different"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "135",
+      "b": "136",
+      "policy": "likely_different",
+      "status": "fallback_to_policy",
+      "fallback_reason": "evidence fields must be lists of strings",
+      "model_recommendation": "likely_different"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "102",
+      "b": "110",
+      "policy": "likely_different",
+      "status": "model_ok",
+      "fallback_reason": "",
+      "model_recommendation": "likely_different"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "113",
+      "b": "114",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "115",
+      "b": "116",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "127",
+      "b": "129",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "132",
+      "b": "133",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "134",
+      "b": "135",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "127",
+      "b": "128",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "128",
+      "b": "129",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "101",
+      "b": "102",
+      "policy": "likely_match",
+      "status": "fallback_to_policy",
+      "fallback_reason": "malformed or missing keys",
+      "model_recommendation": "likely_match"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "111",
+      "b": "112",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "121",
+      "b": "122",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "invalid recommendation value",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "130",
+      "b": "131",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "119",
+      "b": "120",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "125",
+      "b": "126",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "105",
+      "b": "106",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "108",
+      "b": "115",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "108",
+      "b": "116",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "117",
+      "b": "118",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "113",
+      "b": "117",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "114",
+      "b": "117",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "110",
+      "b": "125",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "106",
+      "b": "120",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "107",
+      "b": "108",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "107",
+      "b": "110",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "123",
+      "b": "124",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "109",
+      "b": "110",
+      "policy": "needs_review",
+      "status": "fallback_to_policy",
+      "fallback_reason": "contradicts policy recommendation",
+      "model_recommendation": "needs_review"
+    }
+  ],
+  "names_only": [
+    {
+      "set": "synthetic_names.csv",
+      "a": "13",
+      "b": "14",
+      "name_a": "Fatma Ibrahim",
+      "name_b": "Fatma Ibrahim",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": false
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "24",
+      "b": "25",
+      "name_a": "Khaled Mansour",
+      "name_b": "Khalid Mansoor",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "1",
+      "b": "3",
+      "name_a": "Mennatullah Hassan",
+      "name_b": "Mennatallah Hassan",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "2",
+      "b": "3",
+      "name_a": "Menna Allah Hassan",
+      "name_b": "Mennatallah Hassan",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "10",
+      "b": "11",
+      "name_a": "Ahmed Hassan",
+      "name_b": "Ahmad Hassan",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": false
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "11",
+      "b": "12",
+      "name_a": "Ahmad Hassan",
+      "name_b": "Ahmed Hasan",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": false
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "10",
+      "b": "12",
+      "name_a": "Ahmed Hassan",
+      "name_b": "Ahmed Hasan",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "20",
+      "b": "21",
+      "name_a": "Nour El Din Samy",
+      "name_b": "Noureldin Sami",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "38",
+      "b": "39",
+      "name_a": "Zaynab Al-Hakim",
+      "name_b": "Zainab El Hakim",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "1",
+      "b": "2",
+      "name_a": "Mennatullah Hassan",
+      "name_b": "Menna Allah Hassan",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "4",
+      "b": "5",
+      "name_a": "Mohamed Ali",
+      "name_b": "Muhammad Ali",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "15",
+      "b": "17",
+      "name_a": "Youssef Khaled",
+      "name_b": "Yusuf Khalid",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "4",
+      "b": "6",
+      "name_a": "Mohamed Ali",
+      "name_b": "Mohammed Aly",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "7",
+      "b": "8",
+      "name_a": "Abdelrahman Mahmoud",
+      "name_b": "Abd El Rahman Mahmoud",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "15",
+      "b": "16",
+      "name_a": "Youssef Khaled",
+      "name_b": "Yousef Khaled",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "18",
+      "b": "19",
+      "name_a": "Omar Farouk",
+      "name_b": "Omar Farouk",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "41",
+      "b": "42",
+      "name_a": "Rana Fathy",
+      "name_b": "Rana Fathi",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "26",
+      "b": "27",
+      "name_a": "Hana Salem",
+      "name_b": "Hanan Salem",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": false
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "7",
+      "b": "9",
+      "name_a": "Abdelrahman Mahmoud",
+      "name_b": "Abdul Rahman Mahmoud",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "8",
+      "b": "9",
+      "name_a": "Abd El Rahman Mahmoud",
+      "name_b": "Abdul Rahman Mahmoud",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "28",
+      "b": "29",
+      "name_a": "Mostafa Kamal",
+      "name_b": "Mostafa Kamel",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "30",
+      "b": "31",
+      "name_a": "Ahmed Al-Sayed",
+      "name_b": "Ahmed El Sayed",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "31",
+      "b": "32",
+      "name_a": "Ahmed El Sayed",
+      "name_b": "Ahmad Elsayed",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "5",
+      "b": "6",
+      "name_a": "Muhammad Ali",
+      "name_b": "Mohammed Aly",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "16",
+      "b": "17",
+      "name_a": "Yousef Khaled",
+      "name_b": "Yusuf Khalid",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "30",
+      "b": "32",
+      "name_a": "Ahmed Al-Sayed",
+      "name_b": "Ahmad Elsayed",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "38",
+      "b": "40",
+      "name_a": "Zaynab Al-Hakim",
+      "name_b": "Zeinab Hakim",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "39",
+      "b": "40",
+      "name_a": "Zainab El Hakim",
+      "name_b": "Zeinab Hakim",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": true
+    },
+    {
+      "set": "synthetic_names.csv",
+      "a": "22",
+      "b": "23",
+      "name_a": "Sara Adel",
+      "name_b": "Mariam Tarek",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "134",
+      "b": "136",
+      "name_a": "Abdullah Said",
+      "name_b": "Abdulla Sayed",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "103",
+      "b": "104",
+      "name_a": "Hussein Ali",
+      "name_b": "Hussain Ali",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "135",
+      "b": "136",
+      "name_a": "Abdallah Saeed",
+      "name_b": "Abdulla Sayed",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "102",
+      "b": "110",
+      "name_a": "Mohamed Bin Salem",
+      "name_b": "Mohamed Ali",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "113",
+      "b": "114",
+      "name_a": "Salma Nabil",
+      "name_b": "Salma Nabil",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "115",
+      "b": "116",
+      "name_a": "Ali Hassan",
+      "name_b": "Aly Hasan",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "127",
+      "b": "129",
+      "name_a": "Layla Karim",
+      "name_b": "Laila Karim",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "132",
+      "b": "133",
+      "name_a": "Sara  Hamdy",
+      "name_b": "SARA HAMDY",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "134",
+      "b": "135",
+      "name_a": "Abdullah Said",
+      "name_b": "Abdallah Saeed",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "127",
+      "b": "128",
+      "name_a": "Layla Karim",
+      "name_b": "Leila Karim",
+      "raw": "UNEQUAL",
+      "answer": "OTHER",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "128",
+      "b": "129",
+      "name_a": "Leila Karim",
+      "name_b": "Laila Karim",
+      "raw": "UNEQUAL",
+      "answer": "OTHER",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "101",
+      "b": "102",
+      "name_a": "Muhammad Ibn Salim",
+      "name_b": "Mohamed Bin Salem",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "111",
+      "b": "112",
+      "name_a": "Ḥasan Yaʿqūb",
+      "name_b": "Hasan Yaqub",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "121",
+      "b": "122",
+      "name_a": "Samir Adel",
+      "name_b": "Sameer Adil",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "130",
+      "b": "131",
+      "name_a": "Omar Nabil",
+      "name_b": "Omar Nabil",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "119",
+      "b": "120",
+      "name_a": "Mahmoud Saeed",
+      "name_b": "Mahmood Said",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "125",
+      "b": "126",
+      "name_a": "Mohamed Ahmed",
+      "name_b": "Mohamed Ahmad",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "105",
+      "b": "106",
+      "name_a": "Ahmed Al Sayed",
+      "name_b": "Ahmed Sayed",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "108",
+      "b": "115",
+      "name_a": "Mo Ali Hassan",
+      "name_b": "Ali Hassan",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "108",
+      "b": "116",
+      "name_a": "Mo Ali Hassan",
+      "name_b": "Aly Hasan",
+      "raw": "UNEQUAL",
+      "answer": "OTHER",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "117",
+      "b": "118",
+      "name_a": "Hala Nabil",
+      "name_b": "Hela Nabil",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "113",
+      "b": "117",
+      "name_a": "Salma Nabil",
+      "name_b": "Hala Nabil",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "114",
+      "b": "117",
+      "name_a": "Salma Nabil",
+      "name_b": "Hala Nabil",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "110",
+      "b": "125",
+      "name_a": "Mohamed Ali",
+      "name_b": "Mohamed Ahmed",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "106",
+      "b": "120",
+      "name_a": "Ahmed Sayed",
+      "name_b": "Mahmood Said",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "107",
+      "b": "108",
+      "name_a": "Mohamed Ali Hassan",
+      "name_b": "Mo Ali Hassan",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": true
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "107",
+      "b": "110",
+      "name_a": "Mohamed Ali Hassan",
+      "name_b": "Mohamed Ali",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "123",
+      "b": "124",
+      "name_a": "Salma",
+      "name_b": "Selma",
+      "raw": "SAME",
+      "answer": "SAME",
+      "truth_same_person": false
+    },
+    {
+      "set": "hard_cases.csv",
+      "a": "109",
+      "b": "110",
+      "name_a": "محمد علي",
+      "name_b": "Mohamed Ali",
+      "raw": "UNSURE",
+      "answer": "UNSURE",
+      "truth_same_person": true
+    }
+  ]
+}

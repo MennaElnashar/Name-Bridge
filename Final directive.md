@@ -28,8 +28,8 @@ Abstain (needs_review) when identifiers are absent, partially missing, or contra
 Matching uses a separate normalized form. The displayed and exported name is always the original string, byte for byte. Default similarity folds spacing and common vowel variants (a change made after the phase 4 stress test). This raises review workload (about 32% more flagged pairs on the homonym stress test) and is threshold sensitive (best at 75 to 80). Revisit before any use on real data.
 
 ## 6. What the optional model may do
-Run with `python -m src.compare_models <model id or local folder path>`. The model is never required; when it is absent or unreachable, the policy result stands. No model comparison results exist yet, so no claim about model behavior is made anywhere in this repository.
-Summarize an already generated pair: supporting, conflicting and missing evidence, in the required JSON shape. It may agree with the policy or downgrade to needs_review.
+Summarize an already generated pair: supporting, conflicting and missing evidence, in the required JSON shape. It may agree with the policy or downgrade to needs_review. Nothing here is required for the app to work.
+Run with `python -m src.compare_models <model id or local folder>` (or `--remote` for a hosted model). The model is never required; when it is absent or unreachable, the policy result stands. Measured so far, for one small model (Qwen2.5-0.5B-Instruct, one run): the guard rejected 57 of 58 outputs and accepted no upgrade, and shown only two names the model said SAME on 6 of 27 pairs of different people. That is evidence for these rules, not a claim about models in general.
 
 ## 7. What the model must never do
 Upgrade a recommendation, introduce identifiers not in the records, treat spelling alone as proof, merge or delete records, or be required for the app to run.
@@ -38,8 +38,8 @@ Upgrade a recommendation, introduce identifiers not in the records, treat spelli
 Model: JSON with recommendation, supporting_evidence[], conflicting_evidence[], missing_evidence[], reasoning_summary. Export CSV columns: record_id_a, record_id_b, name_a, name_b, similarity, recommendation, reason, matching_ids, conflicting_ids, missing_ids, soft_conflicts, review_decision, reviewer_note.
 
 ## 9. Errors and regressions
-Malformed, invented or contradictory model output: fall back to the policy result and flag for human review. Unreadable or empty input: show a clear error. Every failure found gets a regression test before it is considered fixed. `python -m unittest discover -s tests -t .` (37 tests, including the gold-label audit) and `python -m src.evaluate` (synthetic and hard sets) must pass before release. A known, documented failure (hard set 115/116) is reported, not hidden by tuning the policy.
+Malformed, invented or contradictory model output: fall back to the policy result and flag for human review. Unreadable or empty input: show a clear error. Every failure found gets a regression test before it is considered fixed. `python -m unittest discover -s tests -t .` (40 tests, including the gold-label audit) and `python -m src.evaluate` (synthetic and hard sets) must pass before release. A known, documented failure (hard set 115/116) is reported, not hidden by tuning the policy.
 
 ## 10. Honesty requirements
-Gold labels are written by the same author as the policy and are only audited automatically against ground-truth entity ids; say so whenever results are quoted. A result that was not produced (for example the model comparison) is reported as not run, with the reason.
+Gold labels are written by the same author as the policy and are only audited automatically against ground-truth entity ids; say so whenever results are quoted. A result that was not produced is reported as not run, with the reason, and a result from one small model or one run is labelled as such (the model comparison is one 0.5B model, one run).
 Report only measured results, say which backend and data produced them, and do not generalize from synthetic data.

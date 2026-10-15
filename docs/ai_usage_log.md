@@ -1,7 +1,7 @@
 # AI usage log
 
 ## How to read this
-The brief asks for five days of AI-assisted work. This project was built with AI at every step, but the build itself was compressed: both AI working sessions happened on 2026-10-14, after an earlier brainstorming stage whose date was not recorded. I have not rewritten that into five calendar days. The entries below follow the plan's five phases (define, baseline, model layer, stress, ship) in the order the work really happened, and each entry says who did what and what was checked.
+The brief asks for five days of AI-assisted work. This project was built with AI at every step, but the build itself was compressed: the AI working sessions happened on 2026-10-14 and 2026-10-15, after an earlier brainstorming stage whose date was not recorded. I have not rewritten that into five calendar days. The entries below follow the plan's five phases (define, baseline, model layer, stress, ship) in the order the work really happened, and each entry says who did what and what was checked.
 
 ## Tools and what each was used for
 | Stage | Tool | Used for |
@@ -23,6 +23,8 @@ Follow-up session (Copilot in VS Code):
 4. "Do them please then update everything to not have any ToDos"
 5. "fix the model run part and also the Final Directive.md too"
 6. A request to make everything written logical and humane, noting that ChatGPT was used for brainstorming first.
+7. "Fix the model comparison", then a series of short steers while the model run was blocked: "Can't we just use the hf model without downloading it locally?", "use sth free", "any other smaller model?", and finally a Hugging Face access token pasted into the chat so a hosted run could be tried.
+8. "Push the repo here https://github.com/MennaElnashar/Name-Bridge.git"
 Also one decision question was answered: when the model download was blocked, the choice was "get huggingface.co allowed or give a local model folder", which is why `compare_models` accepts a local folder.
 
 ## Phase 1: define and scaffold (Claude)
@@ -42,7 +44,10 @@ Also one decision question was answered: when the model download was blocked, th
 - AI contribution (Claude): `src/llm_review.py`, a checker that discards any model output that is malformed, invents an email or ID, or tries to upgrade the policy's recommendation, plus 10 tests using fake generators so no model is needed.
 - Bug a test caught: the checker rejected a real email because it counted the full stop at the end of a sentence as part of the address. Fixed.
 - AI contribution (Copilot): `src/compare_models.py`, which measures the guarded review and also asks the model, from names alone, whether two records are the same person (hypothesis 3). Tested with a stub model.
-- What did not work: the planned model, Qwen2.5-1.5B-Instruct, could not be downloaded because the network proxy answered 403 for huggingface.co. A mirror host did respond to a connectivity check, but I did not download through it because that would sidestep the network's rules. `torch` and `transformers` were installed. The script now also loads a local model folder offline; this was verified end to end with a tiny random model whose output was thrown away. No model results exist.
+- What did not work at first: the planned model, Qwen2.5-1.5B-Instruct, could not be downloaded because the network proxy answered 403 for huggingface.co. A mirror host did respond to a connectivity check, but I did not download through it because that would sidestep the network's rules. `torch` and `transformers` were installed. The script also loads a local model folder offline, verified with a tiny random model whose output was thrown away.
+- Later the proxy opened (403 became 307 and 206) and the work resumed. A first download with the Python downloader stalled at 0 MB, probably on Hugging Face's Xet transfer path; plain `curl` with resume worked. The 3 GB file was only 7% done after several minutes at about 0.8 MB/s, so I stopped it on your suggestion of a smaller model and fetched Qwen2.5-0.5B-Instruct (988,097,824 bytes, size checked against the server).
+- Hosted alternative: a `--remote` mode was added and tested with a fake server. A real call with the pasted token returned HTTP 402 (no credits) for every model I tried, including Kimi, so no hosted result exists. The token was used only as an environment variable for those calls, written to no file, and is not in the repository. Because it was pasted into a chat, it should be revoked.
+- The model run itself: 58 candidate pairs, Qwen2.5-0.5B-Instruct on CPU, about 7 seconds per pair. Results are in `docs/evaluation_protocol.md` and `outputs/model_comparison.json`. One small model, one run.
 
 ## Phase 4: stress and redesign (Claude, then Copilot)
 - Task: make the evaluation harder than the baseline's and see what breaks.
@@ -54,7 +59,7 @@ Also one decision question was answered: when the model download was blocked, th
 ## Phase 5: ship and document (Claude, then Copilot)
 - AI contribution (Claude): README, write-up, retrospective, this log, first drafts of everything.
 - AI contribution (Copilot): ran the app and checked it with Streamlit's AppTest; found and fixed a stale-results bug (two different same-shaped CSVs could show the first one's pairs); removed a deprecated option; wrote `docs/walkthrough.md` from real outputs; corrected the documents that still said the app had never been launched; added `tests/test_gold_labels.py`.
-- Not done: the project is not published on GitHub, because this machine had no GitHub tooling or credentials. The walkthrough is written, not recorded on video.
+- Publishing: the project is committed to a local git repository. The push to https://github.com/MennaElnashar/Name-Bridge failed because this machine has no GitHub credentials; the owner needs to run `git push -u origin main`. The walkthrough is written, not recorded on video.
 
 ## Where the AI was wrong or overclaimed
 - The first documents described the app as finished while it had only been syntax-checked.

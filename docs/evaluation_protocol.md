@@ -28,9 +28,33 @@ Threshold sweep (gold agreement out of 29): conservative 24, 23, 20, 17, 12 at t
 
 Homonym stress (120 different people, no identifiers): conservative flagged 37 pairs, aggressive 49 (+32%).
 
-## Model comparison: no results
-src/llm_review.py (10 guard tests) and src/compare_models.py (stub-model test) exist. The planned model, Qwen/Qwen2.5-1.5B-Instruct on CPU (Intel Core Ultra 5 235U, 31 GB RAM, torch 2.14.1+cpu, transformers 5.19.0), could not be downloaded: huggingface.co returned 403 through the network proxy, and no mirror was used. The script also accepts a local model folder, loaded offline (checked end to end with a tiny random model, whose output was discarded). So there are no model numbers: no false-merge, abstention or timing comparison. The script reports, for guarded review, accepted, rejected and downgraded outputs and time per pair, and for names-only prompting, how often the model says SAME on different people (hypothesis 3). It writes outputs/model_comparison.json when run.
+## Model comparison: one small model, one run
+Run on 2026-10-15 with `python -m src.compare_models <folder>`. Raw output: `outputs/model_comparison.json`.
 
+**Setup.** Qwen/Qwen2.5-0.5B-Instruct (the `main` files as downloaded on 2026-10-15; the commit hash was not recorded), float32 on CPU (Intel Core Ultra 5 235U, 31 GB RAM), torch 2.14.1+cpu, transformers 5.19.0, greedy decoding, a single run. The planned model was the 1.5B version; I switched to 0.5B because the 3 GB download ran at about 1 MB/s on this network. The 58 pairs are every candidate pair the final policy produces on the synthetic set (29) and the hard set (29). The model never saw `entity_id` or the free-text note.
+
+**A. Guarded review** (the model explains a pair and `src/llm_review.py` checks it)
+| Outcome | Pairs |
+|---|---|
+| Accepted (agreed with the policy) | 1 |
+| Rejected, policy result used instead | 57 |
+| of which: contradicted the policy | 32 |
+| of which: missing JSON keys | 14 |
+| of which: evidence not lists of strings | 9 |
+| of which: invalid recommendation value | 2 |
+| Upgrades over the policy that got through | 0 |
+
+Time: 6.7 seconds per pair for the model, against milliseconds for the policy. The guard did its job: every unusable output was replaced by the deterministic result and none changed a recommendation. But a 0.5B model could not produce the required output reliably, so it added nothing here.
+
+**B. Names only** (hypothesis 3: the model sees just two names and answers SAME, DIFFERENT or UNSURE)
+| Truth | Pairs | said SAME | said UNSURE | unparsable |
+|---|---|---|---|---|
+| different people | 27 | 6 | 20 | 1 |
+| same person | 31 | 9 | 20 | 2 |
+
+The model mostly abstained (40 of 58 UNSURE), which is the right instinct. But 6 of its 15 SAME answers were wrong (40%). Two of those were identical names belonging to different people (Fatma Ibrahim, Omar Nabil), which no reading of a name can settle; the rest were one-letter variants (Hana/Hanan, Salma/Selma, Ahmed/Ahmad Hassan). On those same six pairs the policy answered likely_different three times and needs_review three times, never likely_match.
+
+**Limits.** One very small model, one run, 58 pairs, prompts not tuned, no other model. A larger model could behave differently, so this says nothing about models in general. The hosted-API route was tried and was not possible: the Hugging Face account had no credits (HTTP 402), so `--remote` mode was only tested against a fake server and a real 402 response.
 ## Hard set (data/hard_cases.csv, data/hard_gold_pairs.csv)
 36 records, 21 gold pairs, written after the design was frozen; the policy was not changed in response. Categories: ibn/bin variants, Arabic script versus Latin, diacritics, nickname, dropped Al, email case and id whitespace, three-way variants, ids reused by different people, a misleading note.
 | Strategy | Gold agreement | False merges | True pairs not surfaced | Candidates outside gold |
@@ -40,4 +64,4 @@ src/llm_review.py (10 guard tests) and src/compare_models.py (stub-model test) e
 The false merge is two different people with similar names and the same student id: the policy trusts one matching unique identifier. The gold label for that pair follows the policy, and the audit test lists it as a documented exception. The 8 outside-gold candidates are pairs of different people with similar names; none is likely_match. Raw output: outputs/hard_results.json.
 
 ## Limits of this evidence
-Small synthetic set written by the same author as the labels and the fix; 29/29 is expected after a fix aimed at those cases and is not evidence of generalization. The first run used a pure-python implementation of the fuzz.ratio definition; re-running `python -m src.evaluate` and `python -m src.stress` with real RapidFuzz 3.14.6 gave the same gold agreement, false merges, threshold sweep and homonym workload numbers. Unit tests (33) pass under unittest.
+Small synthetic set written by the same author as the labels and the fix; 29/29 is expected after a fix aimed at those cases and is not evidence of generalization. The first run used a pure-python implementation of the fuzz.ratio definition; re-running `python -m src.evaluate` and `python -m src.stress` with real RapidFuzz 3.14.6 gave the same gold agreement, false merges, threshold sweep and homonym workload numbers. Unit tests (40) pass under unittest.

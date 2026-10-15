@@ -1,6 +1,6 @@
 # Implementation plan (as executed)
 
-The plan came from brainstorming with ChatGPT and was then carried out with AI help in two sessions on 2026-10-14. The order below is the order things were really done.
+The plan came from brainstorming with ChatGPT and was then carried out with AI help in two sessions on 2026-10-14 and 2026-10-15. The order below is the order things were really done.
 
 1. Scaffold and written spec (`intent.md`, first `Final directive.md`).
 2. The deterministic core: normalization, similarity, identifier evidence, policy, pipeline.
@@ -11,6 +11,6 @@ The plan came from brainstorming with ChatGPT and was then carried out with AI h
 7. Documents.
 8. Follow-up session: ran everything, fixed the stale-results bug, added a harder second set, a gold-label audit, the model comparison script and a written walkthrough, then corrected the documents.
 
-Modules: `src/normalization.py`, `matching.py`, `evidence.py`, `policy.py`, `pipeline.py`, `llm_review.py`, `compare_models.py`, `evaluate.py`, `stress.py`; `app.py`; `tests/` (37 tests).
+Modules: `src/normalization.py`, `matching.py`, `evidence.py`, `policy.py`, `pipeline.py`, `llm_review.py`, `compare_models.py`, `evaluate.py`, `stress.py`; `app.py`; `tests/` (40 tests).
 
-Outcome: the app launches and is documented in `docs/walkthrough.md`. The model comparison is built but has no results because the model could not be downloaded. The project is local and not published on GitHub.
+Outcome: the app launches and is documented in `docs/walkthrough.md`. The model comparison ran once with Qwen2.5-0.5B-Instruct on CPU (the 1.5B model was too slow to download; a hosted API needed credits). The project is committed locally; pushing to https://github.com/MennaElnashar/Name-Bridge needs the owner's GitHub sign-in, which this machine did not have.
