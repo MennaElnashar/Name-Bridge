@@ -2,6 +2,16 @@
 
 Similar names. Different spellings. Better decisions. A human-in-the-loop tool for reviewing possible duplicate records with Arabic names in Latin script. It never merges or deletes anything.
 
+## For reviewers: where each criterion is evidenced
+| Criterion | Evidence |
+|---|---|
+| Problem choice: real, hard, found by me | intent.md ("How this started": my own name written differently by local organizations) and the problem section of docs/writeup.md |
+| Unlearning | docs/writeup.md ("What I unlearned"), docs/retrospective.md, and the before/after snapshots outputs/eval_before_day4.json and outputs/eval_results.json |
+| AI-native working | docs/ai_usage_log.md: four days (13 to 16 October), every prompt, what each tool did and where it was wrong |
+| Shipping | This repository; the app runs with `streamlit run app.py`; docs/walkthrough.md has screenshots and docs/walkthrough.webm a short recording |
+| Stress growth | "Stress growth" table in docs/writeup.md; detail in docs/evaluation_protocol.md; raw results in outputs/ |
+| Operating rules | Final directive.md |
+
 ## Run
 ```
 pip install -r requirements.txt
@@ -12,7 +22,7 @@ streamlit run app.py                        # app (works with no model)
 python -m src.compare_models <model id or local folder> [limit]   # optional: model comparison (needs transformers, torch); a local folder loads offline
 python -m src.compare_models <model id> [limit] --remote           # optional: hosted model; needs HF_TOKEN and account credits, sends the prompts out
 ```
-Use data/synthetic_names.csv. Do not upload real personal records to a public demo. A step-by-step demo is in docs/walkthrough.md.
+Use data/synthetic_names.csv. Do not upload real personal records to a public demo. A step-by-step demo with screenshots is in docs/walkthrough.md.
 
 ## Status
 | Item | State |

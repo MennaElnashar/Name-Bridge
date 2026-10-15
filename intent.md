@@ -3,7 +3,7 @@
 Status: Day 1 contract. Hypotheses below are hypotheses, recorded before the evaluation was run. Later changes of understanding are logged in docs/retrospective.md, not here.
 
 ## How this started
-I explored the idea first in a brainstorming conversation with ChatGPT, then wrote this contract before building anything. The details of how AI was used are in docs/ai_usage_log.md.
+I ran into this problem myself. Local organizations each wrote my name, "Mennatullah", in a different way, so one person was recorded in many forms. I explored it on 13 October in a brainstorming conversation with ChatGPT, turned it into a testable question and a five-day plan, and wrote this contract before building anything. How AI was used, day by day, is in docs/ai_usage_log.md.
 
 ## Problem statement
 Arabic names written in Latin script have many valid spellings (Mohamed, Muhammad, Mohammed; Abdelrahman, Abd El Rahman; Mennatullah, Menna Allah). Registration and records systems either miss that two records are the same person, or merge people who only have similar names. Both errors are costly: duplicates distort counts, wrong merges destroy or leak a real person's data.

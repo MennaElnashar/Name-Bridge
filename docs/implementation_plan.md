@@ -1,6 +1,6 @@
 # Implementation plan (as executed)
 
-The plan came from brainstorming with ChatGPT and was then carried out with AI help in two sessions on 2026-10-14 and 2026-10-15. The order below is the order things were really done.
+The plan came from brainstorming with ChatGPT on 13 October 2026 and was carried out with AI help on 14 and 15 October, with a final revision by the author on 16 October. The order below is the order things were really done.
 
 1. Scaffold and written spec (`intent.md`, first `Final directive.md`).
 2. The deterministic core: normalization, similarity, identifier evidence, policy, pipeline.

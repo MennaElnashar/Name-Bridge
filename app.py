@@ -79,7 +79,7 @@ if df is not None and not df.empty:
         a = df[df[id_col] == row.record_id_a].iloc[0]
         b = df[df[id_col] == row.record_id_b].iloc[0]
         shown = [c for c in df.columns if c not in ("entity_id", "__row__")]
-        st.table(pd.DataFrame([a[shown], b[shown]]))
+        st.dataframe(pd.DataFrame([a[shown], b[shown]]), hide_index=True)
         d = st.selectbox("Your decision", ["", "same person", "different people", "unsure"], key=f"d{data_hash}_{idx}")
         n = st.text_input("Note", key=f"n{data_hash}_{idx}")
         if st.button("Record decision"):
