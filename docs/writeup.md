@@ -12,11 +12,11 @@ I started out believing the key lever was the name-similarity setting: being mor
 - Then I over-learned it and began to treat "an identifier matches" as safe. A harder set showed two different people who share one student ID are still recommended as a match. One matching identifier is strong evidence, not proof.
 
 ## How I used AI
-AI was my main way of working on every day except the last. Full detail, with every prompt and where the AI was wrong, is in `docs/ai_usage_log.md`.
+AI was my main way of working on every day. Full detail, with every prompt and where the AI was wrong, is in `docs/ai_usage_log.md`.
 - 13 Oct, ChatGPT: brainstorming, choosing the problem, drafting the five-day plan.
 - 14 Oct, Claude: built the first complete version from the plan (code, data, tests, app, evaluation, first documents). Copilot in VS Code then ran everything, found stale claims and a real bug, and added the hard set, an audit of the labels, and the model comparison script.
 - 15 Oct, Copilot: ran the model comparison, tried a hosted model, published the repo, recorded the walkthrough and packaged the submission.
-- 16 Oct: my own final revision.
+- 16 Oct: my final revision of the documents, with Copilot making the edits and re-recording the captioned walkthrough.
 It took four calendar days, not five, and the log says so rather than stretching it.
 
 ## What failed

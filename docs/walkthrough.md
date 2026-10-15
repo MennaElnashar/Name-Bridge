@@ -1,6 +1,6 @@
 # Walkthrough
 
-A step-by-step demo of the app. Every result below comes from running the code in this repository on the synthetic data (RapidFuzz 3.14.6, Streamlit 1.50). The screenshots were captured from the running app. A silent, scripted screen recording of the same flow is in [walkthrough.webm](walkthrough.webm) (under a minute, 5 MB; open it in a browser).
+A step-by-step demo of the app. Every result below comes from running the code in this repository on the synthetic data (RapidFuzz 3.14.6, Streamlit 1.50). The screenshots were captured from the running app. A scripted screen recording of the same flow, with on-screen captions instead of narration, is in [walkthrough.webm](walkthrough.webm) (68 seconds, 7 MB; open it in a browser).
 
 ## 1. Start
 ```

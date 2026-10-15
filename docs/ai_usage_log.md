@@ -1,7 +1,7 @@
 # AI usage log
 
 ## How to read this
-The brief describes five days; this project took four calendar days, 13 to 16 October 2026. AI was my main way of working on every one of them except the last, which was my own final review. The entries are in date order. Each one says which tool I used, what I asked, what it produced, what I checked and where it was wrong. I did not stretch four days into five. The brief's five phases (define, baseline, model layer, stress, ship) are marked on the days they actually happened.
+The brief describes five days; this project took four calendar days, 13 to 16 October 2026. AI was my main way of working on every one of them. The entries are in date order. Each one says which tool I used, what I asked, what it produced, what I checked and where it was wrong. I did not stretch four days into five. The brief's five phases (define, baseline, model layer, stress, ship) are marked on the days they actually happened.
 
 ## Tools
 | Tool | Used on | For |
@@ -52,8 +52,10 @@ Prompts, in order: "Push the repo here https://github.com/MennaElnashar/Name-Bri
 - Publishing. The first push failed for lack of credentials. A browser sign-in then picked up my work account, which has no access to the repository, so GitHub refused it with a 403 and nothing was pushed; the stored credential was removed. Signing in again with the personal account worked.
 - Packaging. Screenshots and a short scripted walkthrough video were recorded from the running app, a small display bug was fixed (the inspected-record table showed the pandas row index beside the real record ID), and a submission bundle was made.
 
-## 16 October: final revision (me)
-Final review of every document against the evaluation criteria, then submission. This entry was written on the evening of 15 October, so it describes what I plan to do, not something already done.
+## 16 October: final revision (me, with Copilot for the edits)
+- I reviewed every document against the evaluation criteria and the real timeline, and asked for the log, the write-up and the reviewer map to be corrected where they claimed too much or too little.
+- Prompts: asking for a captioned version of the walkthrough video (I had no time to record my own narration), and asking how to revoke the Hugging Face token I had pasted into the chat.
+- Copilot re-recorded the scripted walkthrough with on-screen captions and rebuilt the submission bundle.
 
 ## Where the AI was wrong or overclaimed
 - The first documents claimed more than had been checked (an app never launched, a similarity function never compared to RapidFuzz). Both were later checked and the documents corrected.
