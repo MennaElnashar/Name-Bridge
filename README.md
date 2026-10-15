@@ -3,6 +3,9 @@
 **Similar names. Different spellings. Better decisions.**
 A human-in-the-loop tool for reviewing possible duplicate records that contain Arabic names written in Latin script. It recommends, shows its evidence, and says "needs review" when it does not know. **It never merges or deletes anything.**
 
+[docs_walkthrough.webm](https://github.com/user-attachments/assets/afea0123-e20a-44ec-ab28-34a62543b648)
+
+
 ![NameBridge demo preview](docs/img/demo_preview.gif)
 
 ## See it working
