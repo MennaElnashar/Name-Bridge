@@ -11,7 +11,7 @@ A human-in-the-loop tool for reviewing possible duplicate records that contain A
 ## See it working
 | | |
 |---|---|
-| **Short video (68 s, captioned)** | [docs/walkthrough.webm](docs/walkthrough.webm). If GitHub shows only a download button, use the [direct link](https://github.com/MennaElnashar/Name-Bridge/raw/main/docs/walkthrough.webm) or download it. |
+| **Short video (68 s, captioned)** | Plays at the top of this page. The file is also in the repository: [docs/walkthrough.webm](docs/walkthrough.webm) ([direct link](https://github.com/MennaElnashar/Name-Bridge/raw/main/docs/walkthrough.webm)). |
 | **Step-by-step walkthrough with screenshots** | [docs/walkthrough.md](docs/walkthrough.md) |
 | **Run it yourself** | `pip install -r requirements.txt`, then `streamlit run app.py` (see [Quick start](#quick-start)) |
 

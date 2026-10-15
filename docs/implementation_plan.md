@@ -11,6 +11,6 @@ The plan came from brainstorming with ChatGPT on 13 October 2026 and was carried
 7. Documents.
 8. Follow-up session: ran everything, fixed the stale-results bug, added a harder second set, a gold-label audit, the model comparison script and a written walkthrough, then corrected the documents.
 
-Modules: `src/normalization.py`, `matching.py`, `evidence.py`, `policy.py`, `pipeline.py`, `llm_review.py`, `compare_models.py`, `evaluate.py`, `stress.py`; `app.py`; `tests/` (40 tests).
+Modules: `src/normalization.py`, `matching.py`, `evidence.py`, `policy.py`, `pipeline.py`, `llm_review.py`, `compare_models.py`, `evaluate.py`, `stress.py`; `app.py`; `tests/` (46 tests).
 
 Outcome: the app launches and is documented in `docs/walkthrough.md`. The model comparison ran once with Qwen2.5-0.5B-Instruct on CPU (the 1.5B model was too slow to download; a hosted API needed credits). The project is published at https://github.com/MennaElnashar/Name-Bridge.
